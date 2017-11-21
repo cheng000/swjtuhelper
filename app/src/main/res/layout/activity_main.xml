@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:text="刷新教务网验证码"
+        android:text="点击刷新教务网验证码"
         android:layout_gravity="center"
          />
     <ImageView
