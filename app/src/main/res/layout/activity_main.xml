@@ -8,13 +8,7 @@
     android:orientation="vertical"
     tools:context="com.example.a201711116.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="点击刷新教务网验证码"
-        android:layout_gravity="center"
-         />
+
     <ImageView
 
         android:id="@+id/code_view"
@@ -24,10 +18,50 @@
         android:layout_height="32dp" />
     <Button
         android:id="@+id/button1"
-        android:text="测试"
+        android:text="刷新验证码"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
+        android:layout_margin="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+    <EditText
+        android:hint="账号"
+        android:id="@+id/count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:inputType="textPassword"
+        android:hint="密码"
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:hint="验证码"
+        android:id="@+id/yan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:text="登录"
+            android:id="@+id/login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btn_clear"
+            android:text="clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/re"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </ScrollView>
 </LinearLayout>
