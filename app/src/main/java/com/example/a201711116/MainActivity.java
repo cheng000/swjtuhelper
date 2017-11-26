@@ -270,9 +270,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             conn.setUseCaches(false);//不缓存
             conn.connect();
             InputStream is = conn.getInputStream();//获得图片的数据流
-            String Cookie = conn.getHeaderField("JSESSIONID");// 取到所用的Cookie
-            System.out.print(Cookie);
-            responseCookie = Cookie.substring(12,43);
+            String Cookie = conn.getHeaderField("Set-Cookie");// 取到所用的Cookie
+            Log.i("MainActivity",Cookie);
+            responseCookie = Cookie.substring(11,43);
+            Log.i("MainActivity",responseCookie);
             bmp = BitmapFactory.decodeStream(is);
             is.close();
         } catch (Exception e) {
@@ -308,15 +309,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                         // 请求的地址
                                         String spec = "http://jiaowu.swjtu.edu.cn/servlet/UserLoginSQLAction";
                                         // 根据地址创建URL对象
+
                                         URL url = new URL(spec);
                                         // 根据URL对象打开链接
+
                                         HttpURLConnection urlConnection = (HttpURLConnection) url .openConnection();
-                                        urlConnection.setRequestProperty("JSESSIONID", responseCookie);// 给服务器送登录后的cookie
+                                        // 设置请求的方式
+                                        urlConnection.setRequestMethod("POST");
+                                        urlConnection.setDoInput(true);
+                                        urlConnection.setDoOutput(true);
+                                        urlConnection.setInstanceFollowRedirects(true);
+                                        urlConnection.setRequestProperty("Content-Type","text/html;charset=GB2312");
+                                        String JSESSIONID = responseCookie;
+                                        urlConnection.setRequestProperty("Cookie", JSESSIONID);// 给服务器送登录后的cookie
                                         urlConnection.setRequestProperty("user_id", URLEncoder.encode(userName, "UTF-8"));
                                         urlConnection.setRequestProperty("password", URLEncoder.encode(userPass, "UTF-8"));
                                         urlConnection.setRequestProperty("ranstring", URLEncoder.encode(yanzheng,"UTF-8"));
-                                        // 设置请求的方式
-                                        urlConnection.setRequestMethod("POST");
+                                        Log.i("MainActivity",userName);
+                                        Log.i("MainActivity",userPass);
+                                        Log.i("MainActivity",yanzheng);
+
                                         // 设置请求的超时时间
                                         urlConnection.setReadTimeout(5000);
                                         urlConnection.setConnectTimeout(5000);
