@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void loginByGet(String userName, String userPass, String yanzheng)
     {
+        //发送GET指令到教务，否则无法访问主页面
         try
         {
             String spec = "http://jiaowu.swjtu.edu.cn/servlet/UserLoginCheckInfoAction";
@@ -177,6 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             urlConnection.setRequestProperty("Referer", "http://jiaowu.swjtu.edu.cn/servlet/UserLoginSQLAction");
             urlConnection.setRequestProperty("Accept-Encoding", "gzip, deflate");
             urlConnection.setRequestProperty("Accept-Language", "zh-CN,zh;q=0.9");
+            //教务设置了4个cookies
             urlConnection.setRequestProperty("Cookie", "JSESSIONID=" + JSESSIONID);
             urlConnection.setRequestProperty("Cookie", "user_id=" + userName);
             urlConnection.setRequestProperty("Cookie", "user_type=student");
@@ -187,9 +189,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             urlConnection.setReadTimeout(5000);
             urlConnection.setConnectTimeout(5000);
 
+            //教务会回复，让你跳转到主页面
             if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_MOVED_TEMP)
             {
-
+                //教务会回复一个跳转，跳转到主页面。也就是说只要有这个cookie就可以直接进主页面。
             }
             else {
                 System.out.println("链接失败.........");
