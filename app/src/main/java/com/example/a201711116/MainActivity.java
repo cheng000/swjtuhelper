@@ -141,12 +141,64 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         else {
             // 开启子线程
             new Thread() {
-                public void run() { loginByPost(userName, userPass,yanzheng);
+                public void run() {
                     // 调用loginByPost方法
+                    loginByPost(userName, userPass,yanzheng);
+                    loginByGet(userName, userPass, yanzheng);
                 };
             }.start();
         }
 
+    }
+
+    public void loginByGet(String userName, String userPass, String yanzheng)
+    {
+        try
+        {
+            String spec = "http://jiaowu.swjtu.edu.cn/servlet/UserLoginCheckInfoAction";
+            URL url = new URL(spec);
+            // 根据URL对象打开链接
+            HttpURLConnection urlConnection = (HttpURLConnection) url .openConnection();
+            // 设置请求的方式
+            urlConnection.setRequestMethod("GET");
+            // 可以读入数据
+            urlConnection.setDoInput(true);
+            // 可以写数据
+            urlConnection.setDoOutput(true);
+            // 自动重定向
+            urlConnection.setInstanceFollowRedirects(true);
+
+            String JSESSIONID = responseCookie;
+            urlConnection.setRequestProperty("Host", "jiaowu.swjtu.edu.cn");
+            urlConnection.setRequestProperty("Connection", "keep-alive");
+            urlConnection.setRequestProperty("Upgrade-Insecure-Requests", "1");
+            urlConnection.setRequestProperty("User-Agent", "201711116/1.0");
+            urlConnection.setRequestProperty("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
+            urlConnection.setRequestProperty("Referer", "http://jiaowu.swjtu.edu.cn/servlet/UserLoginSQLAction");
+            urlConnection.setRequestProperty("Accept-Encoding", "gzip, deflate");
+            urlConnection.setRequestProperty("Accept-Language", "zh-CN,zh;q=0.9");
+            urlConnection.setRequestProperty("Cookie", "JSESSIONID=" + JSESSIONID);
+            urlConnection.setRequestProperty("Cookie", "user_id=" + userName);
+            urlConnection.setRequestProperty("Cookie", "user_type=student");
+            urlConnection.setRequestProperty("Cookie", "user_style=modern");
+            urlConnection.setRequestProperty("Cookie", "language=cn");
+
+            // 设置请求的超时时间
+            urlConnection.setReadTimeout(5000);
+            urlConnection.setConnectTimeout(5000);
+
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_MOVED_TEMP)
+            {
+
+            }
+            else {
+                System.out.println("链接失败.........");
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     /** * POST请求操作 * * @param userName * @param userPass */
