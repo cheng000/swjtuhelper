@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a201711116.Fragment.ScheduleActivity">
+    tools:context="com.example.a201711116.fragment.ScheduleActivity">
 
     <TextView
         android:text="课程信息"
