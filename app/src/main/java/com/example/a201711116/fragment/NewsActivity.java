@@ -55,7 +55,7 @@ public class NewsActivity extends Fragment {
         return  view;
     }
 
-
+    //显示新闻
     public void getNews(){
         String ss = null;
         try
