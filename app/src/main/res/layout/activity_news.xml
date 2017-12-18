@@ -9,7 +9,6 @@
 
     <TextView
         android:id="@+id/news_item"
-        android:text="教务新闻"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
