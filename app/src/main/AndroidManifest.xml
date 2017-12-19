@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginedActivity" />
-        <activity android:name=".Fragment.NewsActivity" />
-        <activity android:name=".Fragment.ExamActivity" />
-        <activity android:name=".Fragment.ScheduleActivity" />
+        <activity android:name=".fragment.NewsActivity" />
+        <activity android:name=".fragment.ExamActivity" />
+        <activity android:name=".fragment.ScheduleActivity" />
         <activity android:name=".SettingActivity"></activity>
     </application>
 

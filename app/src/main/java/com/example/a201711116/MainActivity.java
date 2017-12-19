@@ -16,9 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
@@ -46,13 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //登录成功标志
     private int Success = -2;
 
-    private static HttpClient httpclient = new DefaultHttpClient();// 创建一个客户端实体
-   // public static UserLoginInfo userLoginInfo = new UserLoginInfo();// 创建一个用户实体
-    private static String urlCourse = "http://***.***.***.***/student/course/MyCourseThisTerm.jsp";// 课程信息URL
-    private String CourseHTML = null;// 保存获得的课程表网页HTML文件的String类型
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState)
+    @Override protected void onCreate(Bundle savedInstanceState)
     { super.onCreate(savedInstanceState);
         // 设置显示的视图
         setContentView(R.layout.activity_main);
@@ -170,7 +161,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     public void loginByGet(String userName, String userPass, String yanzheng)
     {
-        //发送GET指令到教务，否则无法访问主页面
         try
         {
             String spec = "http://jiaowu.swjtu.edu.cn/servlet/UserLoginCheckInfoAction";
@@ -195,7 +185,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             urlConnection.setRequestProperty("Referer", "http://jiaowu.swjtu.edu.cn/servlet/UserLoginSQLAction");
             urlConnection.setRequestProperty("Accept-Encoding", "gzip, deflate");
             urlConnection.setRequestProperty("Accept-Language", "zh-CN,zh;q=0.9");
-            //教务设置了4个cookies
             urlConnection.setRequestProperty("Cookie", "JSESSIONID=" + JSESSIONID);
             urlConnection.setRequestProperty("Cookie", "user_id=" + userName);
             urlConnection.setRequestProperty("Cookie", "user_type=student");
@@ -206,10 +195,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             urlConnection.setReadTimeout(5000);
             urlConnection.setConnectTimeout(5000);
 
-            //教务会回复，让你跳转到主页面
-            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_MOVED_TEMP)
+            if (urlConnection.getResponseCode() == HttpURLConnection.HTTP_OK)
             {
-                //教务会回复一个跳转，跳转到主页面。也就是说只要有这个cookie就可以直接进主页面。
 
             }
             else {

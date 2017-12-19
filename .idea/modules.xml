@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/201711116.iml" filepath="$PROJECT_DIR$/201711116.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swjtuhelper.iml" filepath="$PROJECT_DIR$/swjtuhelper.iml" />
       <module fileurl="file://C:\Users\cheng\Desktop\201711116\swjtuhelper.iml" filepath="C:\Users\cheng\Desktop\201711116\swjtuhelper.iml" />
     </modules>
   </component>
