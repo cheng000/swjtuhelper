@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/item_bk"
     tools:context="com.example.a201711116.fragment.NewsActivity">
 
-    <ScrollView
+
+    <ListView
+        android:id="@+id/news_item"
+        android:layout_marginRight="10sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_marginLeft="15sp"
-            android:layout_marginRight="15sp"
-            android:id="@+id/news_item"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </ScrollView>
+        android:layout_height="match_parent"/>
 
 
 
-</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

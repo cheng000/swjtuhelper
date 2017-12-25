@@ -5,12 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/item_bk"
-    tools:context="com.example.a201711116.fragment.ExamActivity">
+    tools:context="com.example.a201711116.NotebookActivity">
 
-    <ListView
-        android:id="@+id/exam_item"
-        android:layout_marginRight="10sp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 </android.support.constraint.ConstraintLayout>

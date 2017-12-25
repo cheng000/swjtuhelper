@@ -1,15 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/settingback"
     tools:context="com.example.a201711116.SettingActivity">
 
-    <TextView
-        android:text="通过这个页面设置提醒开启/关闭，以及查看各人信息"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/myPhoto"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_width="87dp"
+            android:layout_height="102dp" />
+
+        <TextView
+            android:id="@+id/myInfo"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="170dp"
+            android:layout_height="match_parent" />
+
+        <Button
+            android:id="@+id/about"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimary"
+            android:text="关于"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+    <View
+        android:background="#696969"
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="1dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/send_exam_notice_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:textColor="@color/colorAccent" />
+        <Button
+            android:text="考试提醒"
+            android:id="@+id/send_exam_notice"
+            android:layout_width="wrap_content"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/send_notice_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:checked="false"
+            android:textColor="@color/colorAccent" />
+
+        <Button
+            android:id="@+id/send_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="新闻提醒"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+    <View
+        android:background="#BEBEBE"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="1dp"/>
+    <CalendarView
+        android:id="@+id/calendarview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
