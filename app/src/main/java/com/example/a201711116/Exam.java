@@ -53,7 +53,7 @@ public class Exam {
         return chineseName;
     }
     public String getSMore(){
-        return  "\n\n序号 : " + ID + "\n\n选课编号 = " + scheduleNumber + "\n\n课程代码 : " + classID + "\n\n课程名称 : " +
+        return  "\n\n序号 : " + ID + "\n\n选课编号 : " + scheduleNumber + "\n\n课程代码 : " + classID + "\n\n课程名称 : " +
                 chineseName + "\n\n教学班 : " + classNum + "\n\n学分 : " +credit + "\n\n授课教师 : " +teacher + "\n\n考试时间 : " +
                 examTime + "\n\n考试地点 : " + examPlace + "\n\n监考老师 : " + examTeacher + "\n\n";
     }
